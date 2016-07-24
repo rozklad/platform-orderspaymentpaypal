@@ -66,7 +66,7 @@ class PaypalPaymentService {
 
 	}
 
-	public function test()
+	public static function test()
     {
         $apiContext = new ApiContext(
             new OAuthTokenCredential(
@@ -86,7 +86,10 @@ class PaypalPaymentService {
                 ->setTotal(20);
         $transaction = new Transaction();
         $transaction->setAmount($amount);
-        $baseUrl = getBaseUrl();
+
+        //$baseUrl = getBaseUrl();
+        $baseUrl = 'http://localhost:8000';
+
         $redirectUrls = new RedirectUrls();
         $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
             ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
