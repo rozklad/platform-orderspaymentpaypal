@@ -4,12 +4,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Test
+    | Api credentials
     |--------------------------------------------------------------------------
     |
-    | Testing configuration
+    | Api credentials for PayPal
     |
     */
 
+    'clientID' => '',
+    'clientSecret' => '',
 
 ];

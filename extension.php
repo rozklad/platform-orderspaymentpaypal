@@ -67,7 +67,7 @@ return [
 	|
 	*/
 
-	'version' => '3.0.2',
+	'version' => '3.0.3',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -219,7 +219,35 @@ return [
 	'settings' => function(Settings $settings, Application $app)
 	{
 
-	},
+        $settings->find('platform')->section('orders', function ($s)
+        {
+
+            $s->fieldset('orderspaymentpaypal', function ($f)
+            {
+
+                $f->name = trans('sanatorium/orderspaymentpaypal::settings.title');
+
+                $f->field('clientID', function ($f)
+                {
+                    $f->name = trans('sanatorium/orderspaymentpaypal::settings.clientID.label');
+                    $f->info = trans('sanatorium/orderspaymentpaypal::settings.clientID.info');
+                    $f->type = 'input';
+                    $f->config = 'sanatorium-orderspaymentpaypal.clientID';
+                });
+
+                $f->field('clientSecret', function ($f)
+                {
+                    $f->name = trans('sanatorium/orderspaymentpaypal::settings.clientSecret.label');
+                    $f->info = trans('sanatorium/orderspaymentpaypal::settings.clientSecret.info');
+                    $f->type = 'input';
+                    $f->config = 'sanatorium-orderspaymentpaypal.clientSecret';
+                });
+
+            });
+
+        });
+
+    },
 
 	/*
 	|--------------------------------------------------------------------------
